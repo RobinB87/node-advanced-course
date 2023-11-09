@@ -21,12 +21,16 @@ function doHash() {
   });
 }
 
+// the request does not care what happends in the app, it makes use of the underlying OS
 doRequest();
 
+// while one thread is waiting on the hard drive to return with some statistics
+// this thread picks up the first hash
 fs.readFile("multitask.js", "utf8", () => {
   console.log("FS:", Date.now() - start);
 });
 
+// then, when the first hash is finished, it picks up the readFile action again
 doHash();
 doHash();
 doHash();
