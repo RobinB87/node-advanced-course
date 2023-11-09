@@ -19,3 +19,7 @@ The event loop is the absolute core of every node program that you run, and ever
 - SOME of the functions included inside of the standard library of node are NOT single threaded. These run outside of the event loop, hence outside of the single thread.
 
 So a lot of the node code that we write does not actually execute inside of the single thread entirely
+
+# OS tasks
+
+- main.async.js
