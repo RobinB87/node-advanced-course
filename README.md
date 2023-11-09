@@ -11,6 +11,8 @@ The event loop is the absolute core of every node program that you run, and ever
 
 # Is node single threaded?
 
+- main/threads.js
+
 - The node event loopt IS single threaded
   Single thread means that a node program could only run on on core on our cpu.
 
