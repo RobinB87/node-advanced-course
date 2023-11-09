@@ -15,3 +15,18 @@ crypto.pbkdf2("a", "b", 100000, 512, "sha512", () => {
 crypto.pbkdf2("a", "b", 100000, 512, "sha512", () => {
   console.log("2:", Date.now() - start);
 });
+
+crypto.pbkdf2("a", "b", 100000, 512, "sha512", () => {
+  console.log("3:", Date.now() - start);
+});
+
+crypto.pbkdf2("a", "b", 100000, 512, "sha512", () => {
+  console.log("4:", Date.now() - start);
+});
+
+// this fifth call takes an additional second, whereas the rest runs simultaneously
+// because the amount of available cores need to process the four cores these take a bit longer
+// then the fifth function is computed by one core and hence only takes about a second
+crypto.pbkdf2("a", "b", 100000, 512, "sha512", () => {
+  console.log("5:", Date.now() - start);
+});
