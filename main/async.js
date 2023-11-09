@@ -20,6 +20,8 @@ function doRequest() {
 
 // Libuv is actually delegating the work to our operating system OS
 // which does the real http request
+
+// Tasks using the underlying OS are reflected in the pendingOSTasks array
 doRequest();
 doRequest();
 doRequest();
