@@ -1,3 +1,6 @@
+process.env.UV_THREADPOOL_SIZE = 2; // tell libuv it should only create two threads inside there. Now you will see that func 1 and two are first calculated, then 3 and 4 and finally 5
+// if you use size of 5, then all five funcs get one thread at the same time and are calculated simultaneously
+
 const crypto = require("crypto");
 
 const start = Date.now();
