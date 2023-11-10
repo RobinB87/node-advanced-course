@@ -13,8 +13,11 @@ const exec = mongoose.Query.prototype.exec;
 
 // use function and not arrow, as these have different implementations on the this keyword
 mongoose.Query.prototype.exec = function () {
-  console.log("IM ABOUT TO RUN A QUERY");
-  console.log(this.getQuery());
-  console.log(this.mongooseCollection.name);
+  const key = Object.assign({}, this.getQuery(), {
+    collection: this.mongooseCollection.name,
+  });
+
+  console.log("key", key);
+
   return exec.apply(this, arguments);
 };
