@@ -46,4 +46,19 @@ This does not mean you can just add a lot of forks. In the end your computer has
 
 Increasing the number of children beyond the available number of 'physical' or 'logical' cores on your computer, you will probably experience a nett negative effect of performance. So, clustering is GREAT, but do not go overboard with it.
 
+# Logical cores
+
+This regards to multi threading. If you have a dual core machine (e.g. 2 PHYSICAL cores), each core can process two threads at the same time. So that means 4 LOGICAL cores. Hence, the number of physical cores times the number of threads that these can process at any given point in time.
+
 # PM2 cli
+
+- start
+
+pm2 start index-pm2.js -i 0
+
+-i 0 => let pm2 set up the number of instances equal to your number of logical cores.
+
+pm2 delete index (or your filename instead of index, here; index-pm2) - to kill the running servers
+pm2 list
+pm2 show index-pm2
+pm2 monit
