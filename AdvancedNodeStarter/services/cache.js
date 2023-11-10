@@ -12,12 +12,21 @@ client.get = util.promisify(client.get); // overwrite the existing client.get ge
 const exec = mongoose.Query.prototype.exec;
 
 // use function and not arrow, as these have different implementations on the this keyword
-mongoose.Query.prototype.exec = function () {
-  const key = Object.assign({}, this.getQuery(), {
-    collection: this.mongooseCollection.name,
-  });
+mongoose.Query.prototype.exec = async function () {
+  const key = JSON.stringify(
+    Object.assign({}, this.getQuery(), {
+      collection: this.mongooseCollection.name,
+    })
+  );
 
-  console.log("key", key);
+  const cacheValue = await client.get(key);
+  if (cacheValue) {
+    const doc = JSON.parse(cacheValue);
+    return Array.isArray(doc) ? doc.map((d) => new this.model(d)) : new this.model(doc);
+  }
 
-  return exec.apply(this, arguments);
+  const result = await exec.apply(this, arguments);
+  client.set(key, JSON.stringify(result));
+
+  return result;
 };
