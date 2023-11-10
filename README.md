@@ -69,4 +69,11 @@ npm i --save webworker-threads
 
 # MongoDB VSCode setup
 
-https://code.visualstudio.com/docs/azure/mongodb
+1. Set up devcontainer
+2. Update mongoURI in dev.js
+3. (optional) add mongodb extension to devcontainer
+
+# Redis
+
+start node repl with node (in terminal)
+const redis = require('redis')
