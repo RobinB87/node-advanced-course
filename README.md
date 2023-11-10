@@ -41,3 +41,7 @@ This cluster module has one method called 'fork'. If you call this method from w
 - node internally goes back to the index.js file and executes it a second time.
 - this time in a slightly different mode: this now starts up our worker instance.
 - so the index.js is going to be executed multiple times, first to create a CM, and every time after that a worker instance
+
+This does not mean you can just add a lot of forks. In the end your computer has an upperlimit of how many bits and data it can process at any given point in time. So for example with 6 requests at the same time processing the pbkdf2 function, it means that the 6 separate threads that are running, in 6 children (6 forks) we are balancing between every hash function called. The cpu now tries to do a little bit of work on every one of them. The result is that it now takes longer for EVERY one of them to complete. So it might be good to be able to handle 6 requests at one single time, but here you reach a bottleneck where you try to do too much at one single time.
+
+Increasing the number of children beyond the available number of 'physical' or 'logical' cores on your computer, you will probably experience a nett negative effect of performance. So, clustering is GREAT, but do not go overboard with it.
