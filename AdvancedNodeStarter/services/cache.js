@@ -11,8 +11,17 @@ client.get = util.promisify(client.get); // overwrite the existing client.get ge
 // get reference to existing default exec function on a mongoose query
 const exec = mongoose.Query.prototype.exec;
 
+mongoose.Query.prototype.cache = function () {
+  this.useCache = true;
+  return this;
+};
+
 // use function and not arrow, as these have different implementations on the this keyword
 mongoose.Query.prototype.exec = async function () {
+  if (!this.useCache) {
+    return exec.apply(this, arguments);
+  }
+
   const key = JSON.stringify(
     Object.assign({}, this.getQuery(), {
       collection: this.mongooseCollection.name,
