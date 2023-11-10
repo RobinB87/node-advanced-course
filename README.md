@@ -66,3 +66,7 @@ pm2 monit
 # Webworker threads
 
 npm i --save webworker-threads
+
+# MongoDB VSCode setup
+
+https://code.visualstudio.com/docs/azure/mongodb
