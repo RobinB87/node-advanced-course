@@ -75,6 +75,24 @@ npm i --save webworker-threads
 
 # Redis
 
-redis-cli ping (in another terminal, while server is running via poststartcommand)
+redis-cli ping
 start node repl with node (in terminal)
 const redis = require('redis')
+const redisUrl = 'redis://127.0.0.1:6379'
+const client = redis.createClient(redisUrl)
+client.set('hi', 'there')
+client.get('hi', (err, value) => console.log(value))
+client.get('hi', console.log)
+can save json with client.set('colors', JSON.stringify({ red: 'rojo' }))
+but you will also get this back as json: { 'red': 'rojo' }, so you need to parse it
+
+# Redis nested hash
+
+hset('spanish', 'red', 'rojo') (hash set)
+
+---key---------------value  
+------------nested key---nested value
+'spanish'----'red'----------'rojo'
+-----------'orange'---------'naranja'
+
+'german'-----'red'----------'rot'
