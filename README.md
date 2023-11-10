@@ -96,3 +96,12 @@ hset('spanish', 'red', 'rojo') (hash set)
 -----------'orange'---------'naranja'
 
 'german'-----'red'----------'rot'
+
+# Redis query
+
+We want query keys that are consistent but unique between query executions
+
+const blogs = await Blog.find({ \_user: req.user.id });
+here the user id is unique. But if you also would have
+const tweets = await Tweets.find({ \_user: req.user.id });
+req.user.id is not unique anymore.

@@ -1,5 +1,5 @@
 {
-  "name": "Alpine Container",
+  "name": "Node Container",
   "dockerComposeFile": "docker-compose.yml",
   "service": "app",
   "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
