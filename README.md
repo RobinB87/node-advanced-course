@@ -62,3 +62,7 @@ pm2 delete index (or your filename instead of index, here; index-pm2) - to kill 
 pm2 list
 pm2 show index-pm2
 pm2 monit
+
+# Webworker threads
+
+npm i --save webworker-threads
