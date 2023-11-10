@@ -12,6 +12,7 @@ function doWork(duration) {
   }
 }
 
+// if you open a second tab in localhost it takes even way longer
 app.get("/", (req, res) => {
   doWork(5000); // processed inside of the event loop, now the event loop can do nothing else
   res.send("hi there");
