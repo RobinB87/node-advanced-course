@@ -13,7 +13,6 @@ services:
       - "3000:3000"
     depends_on:
       - db
-      - redis
     networks:
       - my-network
 
@@ -35,14 +34,6 @@ services:
 
     # Add "forwardPorts": ["27017"] to **devcontainer.json** to forward MongoDB locally.
     # (Adding the "ports" property to this file will not forward from a Codespace.)
-
-  redis:
-    image: redis:latest
-    restart: unless-stopped
-    ports:
-      - "6379:6379"
-    networks:
-      - my-network
 
 networks:
   my-network:

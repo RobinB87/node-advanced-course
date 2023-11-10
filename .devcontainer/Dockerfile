@@ -1,15 +1,11 @@
-FROM node:20-alpine3.17
+FROM mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye
 
-RUN apk update && apk add git
+# RUN apk update && apk add git
 
-RUN apk --update add redis 
+# RUN set -ex && apk --no-cache add sudo
 
-RUN set -ex && apk --no-cache add sudo
+# RUN sudo npm i -g pm2
 
-RUN sudo npm i -g pm2
+# USER node
 
-USER node
-
-WORKDIR /app
-
-CMD npm start
+# CMD npm start

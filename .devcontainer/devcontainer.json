@@ -16,7 +16,12 @@
       }
     }
   },
-  "postStartCommand": "git config --global user.email \"${localEnv:VSCODE_CONTAINER_GIT_EMAIL}\" && git config --global user.name \"${localEnv:VSCODE_CONTAINER_GIT_USER}\" && redis-server --bind 0.0.0.0",
+
+  "features": {
+    "ghcr.io/itsmechlark/features/redis-server:1": {}
+  },
+
+  "postStartCommand": "git config --global user.email \"${localEnv:VSCODE_CONTAINER_GIT_EMAIL}\" && git config --global user.name \"${localEnv:VSCODE_CONTAINER_GIT_USER}\"",
 
   "forwardPorts": [5000]
 }
