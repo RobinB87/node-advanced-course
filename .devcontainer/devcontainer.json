@@ -16,7 +16,7 @@
       }
     }
   },
-  "postStartCommand": "git config --global user.email \"${localEnv:VSCODE_CONTAINER_GIT_EMAIL}\" && git config --global user.name \"${localEnv:VSCODE_CONTAINER_GIT_USER}\"",
+  "postStartCommand": "git config --global user.email \"${localEnv:VSCODE_CONTAINER_GIT_EMAIL}\" && git config --global user.name \"${localEnv:VSCODE_CONTAINER_GIT_USER}\" && redis-server --bind 0.0.0.0",
 
   "forwardPorts": [5000]
 }

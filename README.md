@@ -75,5 +75,6 @@ npm i --save webworker-threads
 
 # Redis
 
+redis-cli ping (in another terminal, while server is running via poststartcommand)
 start node repl with node (in terminal)
 const redis = require('redis')
