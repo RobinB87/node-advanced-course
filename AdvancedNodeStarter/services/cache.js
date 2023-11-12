@@ -42,3 +42,10 @@ mongoose.Query.prototype.exec = async function () {
 
   return result;
 };
+
+// for now, if a user enters their id in this function, all the data in their nested hash is deleted
+module.exports = {
+  clearHash(hashKey) {
+    client.del(JSON.stringify(hashKey));
+  },
+};
