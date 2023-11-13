@@ -105,3 +105,11 @@ const blogs = await Blog.find({ \_user: req.user.id });
 here the user id is unique. But if you also would have
 const tweets = await Tweets.find({ \_user: req.user.id });
 req.user.id is not unique anymore.
+
+# Automated headless browser testing
+
+Puppeteer is used to start up chromium:
+https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#chrome-headless-doesnt-launch-on-unix
+
+Browser represents an open browser window
+Page represents one individual tab
