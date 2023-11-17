@@ -125,3 +125,4 @@ Create access key
 2. npm i --save uuid
 
 Set up CORS for the bucket (bucket => permissions => cors config)
+Update permissions: bucket => permission => policy => edit => policy generator
