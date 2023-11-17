@@ -116,5 +116,12 @@ Page represents one individual tab
 
 # AWS
 
+Create S3 Bucket
+Set up IAM policy to allow actions
+Create IAM user
+Create access key
+
 1. npm install --save aws-sdk
 2. npm i --save uuid
+
+Set up CORS for the bucket (bucket => permissions => cors config)
