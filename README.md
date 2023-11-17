@@ -117,3 +117,4 @@ Page represents one individual tab
 # AWS
 
 1. npm install --save aws-sdk
+2. npm i --save uuid
