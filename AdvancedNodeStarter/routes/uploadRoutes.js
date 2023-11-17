@@ -15,10 +15,14 @@ module.exports = (app) => {
   app.get("api/upload", requireLogin, (req, res) => {
     const key = `${req.user.id}/${uuid()}.jpeg`;
 
-    s3.getSignedUrl("putObject", {
-      Bucket: "my-blog-bucket-temp",
-      ContentType: "jpeg",
-      Key: key,
-    });
+    s3.getSignedUrl(
+      "putObject",
+      {
+        Bucket: "my-blog-bucket-temp",
+        ContentType: "jpeg",
+        Key: key,
+      },
+      (err, url) => res.send({ key, url })
+    );
   });
 };
