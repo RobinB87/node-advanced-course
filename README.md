@@ -113,3 +113,7 @@ https://github.com/puppeteer/puppeteer/blob/main/docs/troubleshooting.md#chrome-
 
 Browser represents an open browser window
 Page represents one individual tab
+
+# AWS
+
+1. npm install --save aws-sdk

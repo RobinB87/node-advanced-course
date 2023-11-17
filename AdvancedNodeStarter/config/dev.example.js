@@ -4,4 +4,5 @@ module.exports = {
   mongoURI: "mongodb://...",
   cookieKey: "",
   accessKeyId: "",
+  secretAccessKey: "",
 };
